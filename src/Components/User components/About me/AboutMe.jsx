@@ -48,6 +48,8 @@ const AboutMe = () => {
     return formattedDate;
   };
 
+  console.log(data,"personal data.")
+
   return (
     <div className="mb-8">
       <div className="overflow-y-hidden">
