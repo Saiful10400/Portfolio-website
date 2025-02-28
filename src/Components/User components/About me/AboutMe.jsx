@@ -34,7 +34,7 @@ const AboutMe = () => {
     level: item.proficiency,
   }));
 
-  console.log(experience);
+ 
 
   const formateDate = (dateString) => {
     if (!dateString) return "Present";
@@ -48,7 +48,7 @@ const AboutMe = () => {
     return formattedDate;
   };
 
-  console.log(data,"personal data.")
+  
 
   return (
     <div className="mb-8">

@@ -13,7 +13,7 @@ const Blog = () => {
     axiosPublic.get("all/blog").then((res) => setData(res.data?.data));
   }, [axiosPublic]);
 
-  console.log(data);
+ 
 
   return (
     <div className="min-h-[100vh] pt-32 text-white mb-8">

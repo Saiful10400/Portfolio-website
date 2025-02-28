@@ -42,7 +42,7 @@ const Contact = () => {
   }, [axiosPublic]);
 
 
-console.log(data)
+ 
 
 
   return (
@@ -151,7 +151,7 @@ console.log(data)
                   className=" rounded-3xl bg-[#1C222A] w-full focus:outline-none text-xl py-4 px-5 border-white border"
                   required
                   name="message"
-                  id=""
+                
                   cols="30"
                   rows="10"
                 ></textarea>
