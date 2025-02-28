@@ -57,7 +57,7 @@ const Home = () => {
         <div>
           <a href={cv}>
             <button className="btn btn-primary  bg-yellow-500 text-black border-none text-md lg:text-xl hover:bg-yellow-700">
-              Download CV{" "}
+              My Resume{" "}
               <img
                 className="lg:w-[30px] w-[20px] lg:h-[30px] h-[20px]"
                 src={download}
