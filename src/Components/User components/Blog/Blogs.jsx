@@ -38,8 +38,8 @@ const Blog = () => {
                   <img src={item.featuredImage} alt="" />
                 </div>
                 <div className="px-5">
-                  <h1 className="text-4xl min-h-[100px] my-5">
-                    <span className="text-yellow-500">{item.title}</span>
+                  <h1 className="text-4xl h-[100px] my-5 mb-8">
+                    <span className="text-yellow-500 text-3xl font-semibold">{item.title.length<=60?item.title:item.title.slice(0,56)+"..."}</span>
                   </h1>
                   <Link to={item.slug}>
                     <button className="flex items-center text-xl gap-3 font-bold hover:text-yellow-500 transition-all">

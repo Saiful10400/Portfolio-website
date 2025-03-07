@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../../customHoocks/useAxiosPublic";
 import { FaGithub } from "react-icons/fa";
 import { BsFillEyeFill } from "react-icons/bs";
+import loading from "../../../../public/loading.gif";
 const Project = () => {
   const axiosPublic = useAxiosPublic();
   const { slug } = useParams();
@@ -24,6 +25,13 @@ const Project = () => {
     const formattedDate = `${day} ${month} ${year}`;
     return formattedDate;
   };
+
+  if (!data)
+    return (
+      <div className="w-full h-screen  flex justify-center items-center">
+        <img src={loading} alt="" />
+      </div>
+    );
 
   return (
     <div className="mb-8">

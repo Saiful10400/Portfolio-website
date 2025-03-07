@@ -15,10 +15,10 @@ const Root = () => {
         <NavLink to={"/projects"}>Projects</NavLink>
       </li>
       <li>
-        <NavLink to={"/contact"}>Contact</NavLink>
+        <NavLink to={"/blogs"}>Blog</NavLink>
       </li>
       <li>
-        <NavLink to={"/blogs"}>Blog</NavLink>
+        <NavLink to={"/contact"}>Contact</NavLink>
       </li>
     </>
   );

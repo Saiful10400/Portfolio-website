@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../../customHoocks/useAxiosPublic";
 import parse from "html-react-parser";
+import loading from "../../../../public/loading.gif"
 const Blog = () => {
   const axiosPublic = useAxiosPublic();
   const { slug } = useParams();
@@ -23,6 +24,13 @@ const Blog = () => {
     const formattedDate = `${day} ${month} ${year}`;
     return formattedDate;
   };
+
+   if (!data)
+      return (
+        <div className="w-full h-screen  flex justify-center items-center">
+          <img src={loading} alt="" />
+        </div>
+      );
 
   return (
     <div className="mb-6 lg:mb-9">

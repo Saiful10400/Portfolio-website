@@ -30,16 +30,16 @@ const Projects = () => {
               <div
                 data-aos="zoom-in"
                 key={item._id}
-                className="bg-[#1C222A] rounded-3xl overflow-hidden h-[700px] "
+                className="bg-[#1C222A] rounded-3xl overflow-hidden h-[400px] "
               >
-                <div className="h-[500px] overflow-hidden ">
-                  <img src={item.coverImage} alt="" />
+                <div className="h-[200px] overflow-hidden ">
+                  <img src={item.coverImage} alt="project image" />
                 </div>
                 <div className="px-5">
                   <h1 className="text-4xl my-5">
-                    <span className="text-yellow-500">{item.projectName}</span>{" "}
+                    <span className="text-white">{item.projectName}</span>{" "}
                     -{" "}
-                    <span className="text-3xl font-semibold">
+                    <span className="text-3xl font-semibold text-yellow-500">
                       {item.projectSummary}
                     </span>
                   </h1>
