@@ -1,7 +1,6 @@
 import { Typewriter } from "react-simple-typewriter";
 import saiful from "../../../../public/bgRemovedSaiful.png";
 import download from "../../../../public/download.gif";
-import cv from "../../../../public/Cv of Saiful islam .pdf";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 // ..
@@ -55,7 +54,7 @@ const Home = () => {
           </p>
         </div>
         <div>
-          <a href={cv}>
+          <a href="https://drive.google.com/file/d/1Xox2zFyJTpf4ur1sq4OAkFJn1fYD_zcf/view?usp=drive_link">
             <button className="btn btn-primary  bg-yellow-500 text-black border-none text-md lg:text-xl hover:bg-yellow-700">
               My Resume{" "}
               <img
