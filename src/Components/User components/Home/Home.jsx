@@ -3,6 +3,8 @@ import saiful from "../../../../public/bgRemovedSaiful.png";
 import download from "../../../../public/download.gif";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+import { useEffect } from "react";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 // ..
 AOS.init();
 const Home = () => {
@@ -14,6 +16,16 @@ const Home = () => {
     "Node js",
     "Postgres",
   ];
+
+  // increase visit count
+  useEffect(()=>{
+    const timerId=setTimeout(() => {
+      increasePageCount("home")
+    }, 5000);
+    return ()=>clearTimeout(timerId)
+  })
+
+
   return (
     <div className="flex lg:flex-row justify-start gap-8 lg:min-h-[calc(100vh-78px)] flex-col-reverse overflow-x-hidden">
       <div

@@ -1,7 +1,7 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import logo from "../../../public/s.png";
-import "./Root.css"
+import "./Root.css";
 const Root = () => {
   const li = (
     <>
@@ -55,9 +55,9 @@ const Root = () => {
                 {li}
               </ul>
             </div>
-            <a className=" text-xl">
+            <Link to={"/"} className=" text-xl">
               <img className="w-[60px] h-[60px]" src={logo} alt="" />
-            </a>
+            </Link>
           </div>
           <div className="navbar-center  hidden lg:flex">
             <ul className="flex  px-1 font-bold gap-5 items-start">{li}</ul>

@@ -4,6 +4,7 @@ import useAxiosPublic from "../../../customHoocks/useAxiosPublic";
 import { FaGithub } from "react-icons/fa";
 import { BsFillEyeFill } from "react-icons/bs";
 import loading from "../../../../public/loading.gif";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 const Project = () => {
   const axiosPublic = useAxiosPublic();
   const { slug } = useParams();
@@ -13,6 +14,14 @@ const Project = () => {
       .get(`/all/project?slug=${slug}`)
       .then((res) => setData(res.data?.data));
   }, [axiosPublic, slug]);
+
+    // increase visit count
+    useEffect(()=>{
+      const timerId=setTimeout(() => {
+        increasePageCount("project")
+      }, 5000);
+      return ()=>clearTimeout(timerId)
+    })
 
   // formate date.
   const formateDateString = (dateString) => {

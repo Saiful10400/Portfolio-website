@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../../customHoocks/useAxiosPublic";
 import parse from "html-react-parser";
-import loading from "../../../../public/loading.gif"
+import loading from "../../../../public/loading.gif";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 const Blog = () => {
   const axiosPublic = useAxiosPublic();
   const { slug } = useParams();
@@ -12,6 +13,14 @@ const Blog = () => {
       .get(`/all/blog?slug=${slug}`)
       .then((res) => setData(res.data?.data));
   }, [axiosPublic, slug]);
+
+  // increase visit count
+  useEffect(()=>{
+    const timerId=setTimeout(() => {
+      increasePageCount("blog")
+    }, 5000);
+    return ()=>clearTimeout(timerId)
+  })
 
   // formate date.
   const formateDateString = (dateString) => {
@@ -25,12 +34,12 @@ const Blog = () => {
     return formattedDate;
   };
 
-   if (!data)
-      return (
-        <div className="w-full h-screen  flex justify-center items-center">
-          <img src={loading} alt="" />
-        </div>
-      );
+  if (!data)
+    return (
+      <div className="w-full h-screen  flex justify-center items-center">
+        <img src={loading} alt="" />
+      </div>
+    );
 
   return (
     <div className="mb-6 lg:mb-9">

@@ -4,9 +4,6 @@ import Projects from "./Components/User components/Projects/Projects"
 import Blogs from "./Components/User components/Blog/Blogs"
 import Contact from "./Components/User components/Contact/Contact"
 import Root from "./Components/User components/Root"
-import DashboardRoot from "./Components/Dashboard components/DashboardRoot"
-import ProjectBackend from "./Components/Dashboard components/Projects Backend/ProjectBackend"
-import BlogBackend from "./Components/Dashboard components/Blog Backend/BlogBackend"
 import AboutMe from "./Components/User components/About me/AboutMe"
 import Project from "./Components/User components/Projects/Project"
 import Blog from "./Components/User components/Blog/Blog"
@@ -47,18 +44,18 @@ export const router=createBrowserRouter([
             }
          ]
     },
-    {
-        path:"/dashboard",
-        element:<DashboardRoot></DashboardRoot>,
-        children:[
-            {
-                path:"Add_project",
-                element:<ProjectBackend></ProjectBackend>
-            },
-            {
-                path:"Add_blog",
-                element:<BlogBackend></BlogBackend>
-            }
-        ]
-    }
+    // {
+    //     path:"/dashboard",
+    //     element:<DashboardRoot></DashboardRoot>,
+    //     children:[
+    //         {
+    //             path:"Add_project",
+    //             element:<ProjectBackend></ProjectBackend>
+    //         },
+    //         {
+    //             path:"Add_blog",
+    //             element:<BlogBackend></BlogBackend>
+    //         }
+    //     ]
+    // }
 ])

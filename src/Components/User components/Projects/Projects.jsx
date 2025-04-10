@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import loading from "../../../../public/loading.gif";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 AOS.init();
 const Projects = () => {
   const axiosPublic = useAxiosPublic();
@@ -12,6 +13,15 @@ const Projects = () => {
   useEffect(() => {
     axiosPublic.get("all/project").then((res) => setData(res.data?.data));
   }, [axiosPublic]);
+
+
+    // increase visit count
+    useEffect(()=>{
+      const timerId=setTimeout(() => {
+        increasePageCount("projects")
+      }, 5000);
+      return ()=>clearTimeout(timerId)
+    })
 
   return (
     <div className="min-h-[100vh] pt-32 text-white mb-8">
@@ -37,8 +47,7 @@ const Projects = () => {
                 </div>
                 <div className="px-5">
                   <h1 className="text-4xl my-5">
-                    <span className="text-white">{item.projectName}</span>{" "}
-                    -{" "}
+                    <span className="text-white">{item.projectName}</span> -{" "}
                     <span className="text-3xl font-semibold text-yellow-500">
                       {item.projectSummary}
                     </span>

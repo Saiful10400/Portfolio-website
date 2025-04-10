@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { FaLaptopCode } from "react-icons/fa";
 import useAxiosPublic from "../../../customHoocks/useAxiosPublic";
 import { useEffect, useState } from "react";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 AOS.init();
 const AboutMe = () => {
   // const skill = [
@@ -16,6 +17,15 @@ const AboutMe = () => {
   //   { type: "Node js", level: 60 },
   //   { type: "Mongo db", level: 72 },
   // ];
+
+
+    // increase visit count
+    useEffect(()=>{
+      const timerId=setTimeout(() => {
+        increasePageCount("aboutMe")
+      }, 5000);
+      return ()=>clearTimeout(timerId)
+    })
 
   const axiosPublic = useAxiosPublic();
   const [data, setData] = useState(null);

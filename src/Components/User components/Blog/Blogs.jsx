@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import loading from "../../../../public/loading.gif";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 AOS.init();
 const Blog = () => {
   const axiosPublic = useAxiosPublic();
@@ -13,7 +14,12 @@ const Blog = () => {
     axiosPublic.get("all/blog").then((res) => setData(res.data?.data));
   }, [axiosPublic]);
 
- 
+  useEffect(()=>{
+    const timerId=setTimeout(() => {
+      increasePageCount("blogs")
+    }, 5000);
+    return ()=>clearTimeout(timerId)
+  })
 
   return (
     <div className="min-h-[100vh] pt-32 text-white mb-8">
@@ -39,7 +45,11 @@ const Blog = () => {
                 </div>
                 <div className="px-5">
                   <h1 className="text-4xl h-[100px] my-5 mb-8">
-                    <span className="text-yellow-500 text-3xl font-semibold">{item.title.length<=60?item.title:item.title.slice(0,56)+"..."}</span>
+                    <span className="text-yellow-500 text-3xl font-semibold">
+                      {item.title.length <= 60
+                        ? item.title
+                        : item.title.slice(0, 56) + "..."}
+                    </span>
                   </h1>
                   <Link to={item.slug}>
                     <button className="flex items-center text-xl gap-3 font-bold hover:text-yellow-500 transition-all">
