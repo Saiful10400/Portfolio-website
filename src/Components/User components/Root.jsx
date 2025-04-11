@@ -21,7 +21,7 @@ const Root = () => {
         <NavLink to={"/contact"}>Contact</NavLink>
       </li>
     </>
-  );
+  ); 
   return (
     <>
       <div className="lg:w-[1400px] lg:mx-auto relative z-20">

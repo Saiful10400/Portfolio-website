@@ -8,6 +8,7 @@ import AboutMe from "./Components/User components/About me/AboutMe"
 import Project from "./Components/User components/Projects/Project"
 import Blog from "./Components/User components/Blog/Blog"
 import Role from "./Components/Role"
+import RedirectDashboard from "./Components/User components/RouteRedirect/RedirectDashboard"
 
 export const router=createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const router=createBrowserRouter([
             {
                 path:"role",
                 element:<Role/>
+            },
+            {
+                path:"dashboard",
+                element:<RedirectDashboard/>
             }
          ]
     },
