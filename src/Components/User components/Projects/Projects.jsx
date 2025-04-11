@@ -17,6 +17,7 @@ const Projects = () => {
 
     // increase visit count
     useEffect(()=>{
+      if(localStorage.getItem("role")) return
       const timerId=setTimeout(() => {
         increasePageCount("projects")
       }, 5000);

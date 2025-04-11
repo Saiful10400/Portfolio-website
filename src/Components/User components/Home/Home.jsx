@@ -12,19 +12,19 @@ const Home = () => {
     "Typescript",
     "Redux",
     "Next js",
-    "Prisma",
+    "Prisma ORM",
     "Node js",
     "Postgres",
   ];
 
   // increase visit count
-  useEffect(()=>{
-    const timerId=setTimeout(() => {
-      increasePageCount("home")
+  useEffect(() => {
+    if (localStorage.getItem("role")) return;
+    const timerId = setTimeout(() => {
+      increasePageCount("home");
     }, 5000);
-    return ()=>clearTimeout(timerId)
-  })
-
+    return () => clearTimeout(timerId);
+  });
 
   return (
     <div className="flex lg:flex-row justify-start gap-8 lg:min-h-[calc(100vh-78px)] flex-col-reverse overflow-x-hidden">
@@ -35,8 +35,8 @@ const Home = () => {
       >
         <h1 className="lg:text-6xl text-3xl font-bold">{"HI, I'M SAIFUL!"}</h1>
         {/* <h1 className="text-3xl font-bold">ENTHUSIAST IN WEB-APP DEVELOPMENT</h1> */}
-        <div className="lg:text-5xl text-2xl mt-3 text-white font-bold">
-          I Explored{" "}
+        <div className="lg:text-4xl text-2xl mt-3 text-white font-bold">
+          Proficient in{" "}
           <span className="text-yellow-500">
             <Typewriter
               words={words}
@@ -48,14 +48,14 @@ const Home = () => {
         </div>
         <div className="mt-8">
           <h1 className="lg:text-2xl text-lg font-bold text-yellow-500">
-            {"I'm Enthusiast in Web App."}
+            {"I'm a Web App Enthusiast."}
           </h1>
           <p className="lg:text-lg text-base my-5">
             I am from{" "}
             <span className="font-bold text-yellow-700">Bangladesh</span>. My
-            digital playground includes Next.js, Node.js, and Prisma. I
-            craft seamless user experiences with Redux and MongoDB, while my
-            code dances to the rhythm of JavaScript. Explore my portfolio on{" "}
+            digital playground includes Next.js, Node.js, and Prisma. I craft
+            seamless user experiences with Redux and MongoDB, while my code
+            dances to the rhythm of JavaScript. Explore my portfolio on{" "}
             <a
               className="text-yellow-600 underline font-bold"
               href="https://github.com/Saiful10400"
@@ -66,9 +66,12 @@ const Home = () => {
           </p>
         </div>
         <div>
-          <a target="blank" href="https://drive.google.com/file/d/1Xox2zFyJTpf4ur1sq4OAkFJn1fYD_zcf/view?usp=drive_link">
+          <a
+            target="blank"
+            href="https://drive.google.com/file/d/1Xox2zFyJTpf4ur1sq4OAkFJn1fYD_zcf/view?usp=drive_link"
+          >
             <button className="btn btn-primary  bg-yellow-500 text-black border-none text-md lg:text-xl hover:bg-yellow-700">
-              My Resume{" "}
+              Download Resume
               <img
                 className="lg:w-[30px] w-[20px] lg:h-[30px] h-[20px]"
                 src={download}

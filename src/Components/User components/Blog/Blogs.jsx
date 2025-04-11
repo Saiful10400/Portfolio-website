@@ -15,6 +15,7 @@ const Blog = () => {
   }, [axiosPublic]);
 
   useEffect(()=>{
+    if(localStorage.getItem("role")) return
     const timerId=setTimeout(() => {
       increasePageCount("blogs")
     }, 5000);

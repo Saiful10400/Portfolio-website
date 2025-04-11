@@ -32,6 +32,7 @@ const Contact = () => {
 
     // increase visit count
     useEffect(()=>{
+      if(localStorage.getItem("role")) return
       const timerId=setTimeout(() => {
         increasePageCount("contact")
       }, 5000);

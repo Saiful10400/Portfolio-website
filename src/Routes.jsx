@@ -7,6 +7,7 @@ import Root from "./Components/User components/Root"
 import AboutMe from "./Components/User components/About me/AboutMe"
 import Project from "./Components/User components/Projects/Project"
 import Blog from "./Components/User components/Blog/Blog"
+import Role from "./Components/Role"
 
 export const router=createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router=createBrowserRouter([
             {
                 path:"aboutMe",
                 element:<AboutMe></AboutMe>
+            },
+            {
+                path:"role",
+                element:<Role/>
             }
          ]
     },
