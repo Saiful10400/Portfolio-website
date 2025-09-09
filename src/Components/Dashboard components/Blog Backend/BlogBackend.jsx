@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+ 
+import { useState } from 'react';
 import useAxiosPublic from '../../../customHoocks/useAxiosPublic';
 
 const BlogBackend = () => {
@@ -34,7 +34,7 @@ const BlogBackend = () => {
                     let postDate=new Date()
                     postDate=postDate+""
                    axiosPublic.post("/post_blog",{title,subTitle,content,coverImage,postDate})
-                   .then(res=>console.log(res.data))
+                   
                 }
             })
             

@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { FaLaptopCode } from "react-icons/fa";
 import useAxiosPublic from "../../../customHoocks/useAxiosPublic";
 import { useEffect, useState } from "react";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 AOS.init();
 const AboutMe = () => {
   // const skill = [
@@ -16,6 +17,16 @@ const AboutMe = () => {
   //   { type: "Node js", level: 60 },
   //   { type: "Mongo db", level: 72 },
   // ];
+
+
+    // increase visit count
+    useEffect(()=>{
+      if(localStorage.getItem("role")) return
+      const timerId=setTimeout(() => {
+        increasePageCount("aboutMe")
+      }, 5000);
+      return ()=>clearTimeout(timerId)
+    })
 
   const axiosPublic = useAxiosPublic();
   const [data, setData] = useState(null);
@@ -34,7 +45,7 @@ const AboutMe = () => {
     level: item.proficiency,
   }));
 
-  console.log(experience);
+ 
 
   const formateDate = (dateString) => {
     if (!dateString) return "Present";
@@ -47,6 +58,8 @@ const AboutMe = () => {
     const formattedDate = `${day}-${month}-${year}`;
     return formattedDate;
   };
+
+  
 
   return (
     <div id="about-me" className="mb-8">

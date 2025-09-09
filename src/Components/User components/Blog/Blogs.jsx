@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import loading from "../../../../public/loading.gif";
+import increasePageCount from "../../../utils/IncreasePageVisitCount";
 AOS.init();
 const Blog = () => {
   const axiosPublic = useAxiosPublic();
@@ -13,7 +14,13 @@ const Blog = () => {
     axiosPublic.get("all/blog").then((res) => setData(res.data?.data));
   }, [axiosPublic]);
 
-  console.log(data);
+  useEffect(()=>{
+    if(localStorage.getItem("role")) return
+    const timerId=setTimeout(() => {
+      increasePageCount("blogs")
+    }, 5000);
+    return ()=>clearTimeout(timerId)
+  })
 
   return (
     <div id="blogs" className="min-h-[100vh] pb-8 pt-32 text-white mb-8">

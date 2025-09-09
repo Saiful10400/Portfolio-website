@@ -12,7 +12,7 @@ const Footer = () => {
   }, [axiosPublic]);
 
 
-console.log(data)
+ 
 
   return (
     <div className={url === "/" && "hidden relative"}>
