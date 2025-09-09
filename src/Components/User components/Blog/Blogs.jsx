@@ -16,7 +16,7 @@ const Blog = () => {
   console.log(data);
 
   return (
-    <div className="min-h-[100vh] pt-32 text-white mb-8">
+    <div id="blogs" className="min-h-[100vh] pb-8 pt-32 text-white mb-8">
       {/* all rojects */}
       <div>
         <div className="h-[20vh]">
@@ -29,7 +29,7 @@ const Blog = () => {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {data?.map((item) => (
-              <div
+              <Link to={"blog/"+item.slug}
                 data-aos="zoom-in"
                 key={item._id}
                 className="bg-[#1C222A] rounded-3xl overflow-hidden h-[400px] "
@@ -39,9 +39,9 @@ const Blog = () => {
                 </div>
                 <div className="px-5">
                   <h1 className="text-4xl min-h-[100px] my-5">
-                    <span className="text-yellow-500">{item.title}</span>
+                    <span className="text-yellow-500">{item.title.slice(0,60)} {item.title.length>60?"...":""}</span>
                   </h1>
-                  <Link to={item.slug}>
+                  <Link to={"blog/"+item.slug}>
                     <button className="flex items-center text-xl gap-3 font-bold hover:text-yellow-500 transition-all">
                       Read Now{" "}
                       <span>
@@ -50,7 +50,7 @@ const Blog = () => {
                     </button>
                   </Link>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

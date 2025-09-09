@@ -33,20 +33,17 @@ const Contact = () => {
     swal("Good job!", "Your message sended successfully.", "success");
   };
 
-
-
   const axiosPublic = useAxiosPublic();
   const [data, setData] = useState(null);
   useEffect(() => {
     axiosPublic.get("all/personalInfo").then((res) => setData(res.data?.data));
   }, [axiosPublic]);
 
-
-console.log(data)
-
-
   return (
-    <div className="pt-32 min-h-screen text-white mb-8 overflow-x-hidden">
+    <div
+      id="contact"
+      className="pt-32 min-h-screen text-white mb-8 overflow-x-hidden"
+    >
       <div className="h-[10vh]">
         <h1 className="text-5xl font-bold text-center">Contact</h1>
       </div>
@@ -77,27 +74,21 @@ console.log(data)
           >
             <div>
               <h1 className="text-4xl font-bold">{data?.name}</h1>
-              <h1 className="text-2xl font-bold my-3">
-              {data?.title}
-              </h1>
+              <h1 className="text-2xl font-bold my-3">{data?.title}</h1>
             </div>
             <div className="flex flex-col gap-8 mt-10 pr-10">
               <div className="flex  items-start gap-2 ">
                 <FaMapMarkerAlt className="text-3xl text-yellow-500"></FaMapMarkerAlt>
                 <div>
                   <h1 className="text-2xl font-bold">Address</h1>
-                  <h1 className="text-lg font-medium">
-                  {data?.address}
-                  </h1>
+                  <h1 className="text-lg font-medium">{data?.address}</h1>
                 </div>
               </div>
               <div className="flex  items-start gap-2 ">
                 <AiOutlineMail className="text-3xl text-yellow-500"></AiOutlineMail>
                 <div>
                   <h1 className="text-2xl font-bold">E-mail</h1>
-                  <h1 className="text-lg font-medium">
-                  {data?.email}
-                  </h1>
+                  <h1 className="text-lg font-medium">{data?.email}</h1>
                 </div>
               </div>
               <div className="flex  items-start gap-2 ">
@@ -151,7 +142,6 @@ console.log(data)
                   className=" rounded-3xl bg-[#1C222A] w-full focus:outline-none text-xl py-4 px-5 border-white border"
                   required
                   name="message"
-                  id=""
                   cols="30"
                   rows="10"
                 ></textarea>

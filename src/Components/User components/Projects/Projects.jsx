@@ -14,7 +14,7 @@ const Projects = () => {
   }, [axiosPublic]);
 
   return (
-    <div className="min-h-[100vh] pt-32 text-white mb-8">
+    <div id="projects" className="min-h-[100vh] pt-32 text-white mb-8">
       {/* all rojects */}
       <div>
         <div className="h-[20vh]">
@@ -30,9 +30,9 @@ const Projects = () => {
               <div
                 data-aos="zoom-in"
                 key={item._id}
-                className="bg-[#1C222A] rounded-3xl overflow-hidden h-[700px] "
+                className="bg-[#1C222A] rounded-3xl overflow-hidden pb-3 "
               >
-                <div className="h-[500px] overflow-hidden ">
+                <div className="max-h-52 overflow-hidden ">
                   <img src={item.coverImage} alt="" />
                 </div>
                 <div className="px-5">
@@ -40,7 +40,7 @@ const Projects = () => {
                     <span className="text-yellow-500">{item.projectName}</span>{" "}
                     -{" "}
                     <span className="text-3xl font-semibold">
-                      {item.projectSummary}
+                      {item.projectSummary.slice(0, 30) }{item.projectSummary.length > 30 ? "..." : ""}
                     </span>
                   </h1>
                   <Link to={item.slug}>

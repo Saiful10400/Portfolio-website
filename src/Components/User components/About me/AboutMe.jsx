@@ -49,7 +49,7 @@ const AboutMe = () => {
   };
 
   return (
-    <div className="mb-8">
+    <div id="about-me" className="mb-8">
       <div className="overflow-y-hidden">
         <div
           data-aos="fade-up"

@@ -16,7 +16,7 @@ const Home = () => {
     "Postgres",
   ];
   return (
-    <div className="flex lg:flex-row justify-start gap-8 lg:min-h-[calc(100vh-78px)] flex-col-reverse overflow-x-hidden">
+    <div id="home" className="flex lg:flex-row justify-start gap-8 lg:min-h-[calc(100vh-78px)] flex-col-reverse overflow-x-hidden">
       <div
         data-aos="fade-right"
         data-aos-duration="2000"

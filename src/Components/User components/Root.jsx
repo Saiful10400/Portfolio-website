@@ -1,27 +1,102 @@
-import { NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import logo from "../../../public/s.png";
-import "./Root.css"
+import "./Root.css";
+import Home from "./Home/Home";
+import AboutMe from "./About me/AboutMe";
+import Projects from "./Projects/Projects";
+import Contact from "./Contact/Contact";
+import Blog from "./Blog/Blogs";
+import { useEffect, useState } from "react";
+import {  Outlet, useLocation, useNavigate } from "react-router-dom";
 const Root = () => {
+  const [route, setRoute] = useState("");
+  const currentRoute = useLocation();
+
+  const move = useNavigate();
+  const returnHome = () => {
+    move("/");
+  };
   const li = (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <a
+          onClick={() => {
+            setRoute("home");
+            returnHome();
+          }}
+          className={route === "home" && "active"}
+          href={"#"}
+        >
+          Home
+        </a>
       </li>
       <li>
-        <NavLink to={"/aboutMe"}>About me</NavLink>
+        <a
+          onClick={() => {
+            setRoute("about-me");
+            returnHome();
+          }}
+          className={route === "about-me" && "active"}
+          href={"#about-me"}
+        >
+          About me
+        </a>
       </li>
       <li>
-        <NavLink to={"/projects"}>Projects</NavLink>
+        <a
+          onClick={() => {
+            setRoute("projects");
+            returnHome();
+          }}
+          className={route === "projects" && "active"}
+          href={"#projects"}
+        >
+          Projects
+        </a>
       </li>
       <li>
-        <NavLink to={"/contact"}>Contact</NavLink>
+        <a
+          onClick={() => {
+            setRoute("contact");
+            returnHome();
+          }}
+          className={route === "contact" && "active"}
+          href={"#contact"}
+        >
+          Contact
+        </a>
       </li>
       <li>
-        <NavLink to={"/blogs"}>Blog</NavLink>
+        <a
+          onClick={() => setRoute("blogs")}
+          className={
+            (route === "blogs" || currentRoute.pathname.includes("/blog/")) &&
+            "active"
+          }
+          href={"#blogs"}
+        >
+          Blogs
+        </a>
       </li>
     </>
   );
+
+  console.log(route === "blogs" || currentRoute.pathname.includes("/blog/"));
+  useEffect(() => {
+    if (currentRoute.pathname === "/") {
+      if (currentRoute.hash === "#about-me") {
+        setRoute("about-me");
+      } else if (currentRoute.hash === "#projects") {
+        setRoute("projects");
+      } else if (currentRoute.hash === "#contact") {
+        setRoute("contact");
+      } else if (currentRoute.hash === "#blogs") {
+        setRoute("blogs");
+      } else {
+        setRoute("home");
+      }
+    }
+  }, [currentRoute]);
   return (
     <>
       <div className="lg:w-[1400px] lg:mx-auto relative z-20">
@@ -55,7 +130,14 @@ const Root = () => {
                 {li}
               </ul>
             </div>
-            <a className=" text-xl">
+            <a
+              onClick={() => {
+                setRoute("home");
+                returnHome();
+              }}
+              className={route === "home" && "active"}
+              href={"#"}
+            >
               <img className="w-[60px] h-[60px]" src={logo} alt="" />
             </a>
           </div>
@@ -64,7 +146,17 @@ const Root = () => {
           </div>
         </div>
         <div className="mx-3 lg:min-h-[calc(100vh-78px)] lg:mx-0  relative -z-10">
-          <Outlet></Outlet>
+          {currentRoute.pathname === "/" ? (
+            <>
+              <Home />
+              <AboutMe />
+              <Projects />
+              <Contact />
+              <Blog />
+            </>
+          ) : (
+            <Outlet />
+          )}
         </div>
       </div>
 
