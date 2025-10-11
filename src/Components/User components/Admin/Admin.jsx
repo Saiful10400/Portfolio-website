@@ -2,14 +2,15 @@
 import { useEffect } from "react";
 
 const Admin = () => {
-  // useEffect(() => {
-  //     // Redirect to another website after 1.5 seconds for animation
-  //     const timer = setTimeout(() => {
-  //         window.location.href = "https://example.com"; // Replace with your target URL
-  //     }, 1500);
+  useEffect(() => {
+    // Redirect to another website after 1.5 seconds for animation
+    const timer = setTimeout(() => {
+      window.location.href =
+        "https://portfolio-dashboard-front-end.vercel.app";
+    }, 1500);
 
-  //     return () => clearTimeout(timer);
-  // }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen lg:min-h-[70vh] rounded-md text-white">
