@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import logo from "../../../public/s.png";
+import logo from "../../../public/logo.png";
 import "./Root.css";
 import Home from "./Home/Home";
 import AboutMe from "./About me/AboutMe";
@@ -138,7 +138,7 @@ const Root = () => {
               className={route === "home" && "active"}
               href={"#"}
             >
-              <img className="w-[60px] h-[60px]" src={logo} alt="" />
+              <img className="w-[90px] h-[60px] object-contain" src={logo} alt="" />
             </a>
           </div>
           <div className="navbar-center  hidden lg:flex">
