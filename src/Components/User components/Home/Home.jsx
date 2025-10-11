@@ -1,5 +1,5 @@
 import { Typewriter } from "react-simple-typewriter";
-import saiful from "../../../../public/bgRemovedSaiful.png";
+import saiful from "../../../../public/bgRemovedSaifulv2.png";
 import download from "../../../../public/download.gif";
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
