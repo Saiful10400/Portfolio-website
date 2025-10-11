@@ -4,17 +4,18 @@ import Root from "./Components/User components/Root";
 
 import Blog from "./Components/User components/Blog/Blog";
 import Project from "./Components/User components/Projects/Project";
+import ErrorElement from "./ErrorElement";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement: <h1>something is wrong.</h1>,
+    
     children: [
-      // {
-      //     path:"/",
-      //     element:<Home></Home>
-      // },
+      {
+          path:"*",
+          element:<ErrorElement/>
+      },
       // {
       //     path:"Projects",
       //     element:<Projects></Projects>

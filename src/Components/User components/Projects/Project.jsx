@@ -43,6 +43,8 @@ const Project = () => {
       </div>
     );
 
+    console.log(data?.images[0])
+
   return (
     <div className="mb-8">
       <div className="pt-32">
