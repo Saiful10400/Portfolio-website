@@ -1,53 +1,77 @@
 import { useLocation } from "react-router-dom";
-import logo from "../../../public/s.png"
+import logo from "../../../public/s.png";
 import useAxiosPublic from "../../customHoocks/useAxiosPublic";
 import { useEffect, useState } from "react";
+
 const Footer = () => {
   const url = useLocation().pathname;
-
   const axiosPublic = useAxiosPublic();
   const [data, setData] = useState(null);
+
   useEffect(() => {
     axiosPublic.get("all/personalInfo").then((res) => setData(res.data?.data));
   }, [axiosPublic]);
 
-
- 
-
   return (
-    <div className={url === "/" && "hidden relative"}>
-      <footer className="footer items-center p-4  text-neutral-content bg-[#1c222a]">
-        <aside className="items-center grid-flow-col">
-          <img className="w-[50px] h-[50px]" src={logo} alt="" />
-          <p className="text-yellow-500">
-            Copyright © 2025 - All right reserved by{" "}
-            <a className="underline" href="https://www.linkedin.com/in/saiful10400">Saiful</a>
-          </p>
-        </aside>
-        <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <a target="blank" href={data?.twitter}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
+    <div className={url === "/" ? "hidden" : ""}>
+      <footer className="bg-[#1C222A] text-white py-8 px-4 lg:px-16 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
+          {/* Logo & Copyright */}
+          <div className="flex items-center gap-4">
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-12 h-12 object-contain rounded-full"
+            />
+            <p className="text-yellow-500 text-sm lg:text-base">
+              &copy; 2025 All rights reserved by{" "}
+              <a
+                href="https://www.linkedin.com/in/saiful10400"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white transition-colors"
+              >
+                Saiful
+              </a>
+            </p>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex gap-4">
+            <a
+              href={data?.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-yellow-500 transition-colors"
             >
-              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-            </svg>
-          </a>
-          <a target="blank" href={data?.facebook}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-current"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="fill-current"
+              >
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+              </svg>
+            </a>
+            <a
+              href={data?.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-yellow-500 transition-colors"
             >
-              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-            </svg>
-          </a>
-        </nav>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="fill-current"
+              >
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );

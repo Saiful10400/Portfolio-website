@@ -2,95 +2,60 @@ import { Typewriter } from "react-simple-typewriter";
 import saiful from "../../../../public/bgRemovedSaifulv2.png";
 import download from "../../../../public/download.gif";
 import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
+import "aos/dist/aos.css"; 
 import { useEffect } from "react";
 import increasePageCount from "../../../utils/IncreasePageVisitCount";
-// ..
+
 AOS.init();
+
 const Home = () => {
-  const words = [
-    "Typescript",
-    "Redux",
-    "Next js",
-    "Prisma ORM",
-    "Node js",
-    "Postgres",
-  ];
+  const words = ["Typescript", "Redux", "Next.js", "Prisma ORM", "Node.js", "Postgres"];
 
   // increase visit count
   useEffect(() => {
     if (localStorage.getItem("role")) return;
-    const timerId = setTimeout(() => {
-      increasePageCount("home");
-    }, 5000);
+    const timerId = setTimeout(() => increasePageCount("home"), 5000);
     return () => clearTimeout(timerId);
-  });
+  }, []);
 
   return (
-    <div id="home" className="flex lg:flex-row justify-start gap-8 lg:min-h-[calc(100vh-78px)] flex-col-reverse overflow-x-hidden">
-      <div
-        data-aos="fade-right"
-        data-aos-duration="2000"
-        className=" w-full lg:w-1/2  flex flex-col justify-center items-start  "
-      >
-        <h1 className="lg:text-6xl text-3xl font-bold">{"HI, I'M SAIFUL!"}</h1>
-        {/* <h1 className="text-3xl font-bold">ENTHUSIAST IN WEB-APP DEVELOPMENT</h1> */}
-        <div className="lg:text-4xl text-2xl mt-3 text-white font-bold">
+    <section
+      id="home"
+      className="relative flex flex-col-reverse lg:flex-row items-center lg:justify-end lg:min-h-[calc(90vh-78px)] px-4 lg:px-16 overflow-x-hidden"
+    >
+      {/* Text Section */}
+      <div data-aos="fade-right" data-aos-duration="2000" className="lg:w-1/2 flex flex-col justify-center items-start mt-12 lg:mt-0">
+        <h1 className="text-4xl lg:text-6xl font-extrabold text-white leading-tight">
+          Hi, I&apos;m <span className="text-yellow-500">Saiful!</span>
+        </h1>
+        <h2 className="mt-4 text-2xl lg:text-4xl font-bold text-gray-300">
           Proficient in{" "}
-          <span className="text-yellow-500">
-            <Typewriter
-              words={words}
-              loop={0}
-              cursor="show"
-              deleteSpeed={100}
-            ></Typewriter>
+          <span className="text-yellow-400">
+            <Typewriter words={words} loop={0} cursor="|" deleteSpeed={100} />
           </span>
-        </div>
-        <div className="mt-8">
-          <h1 className="lg:text-2xl text-lg font-bold text-yellow-500">
-            {"I'm a Web App Enthusiast."}
-          </h1>
-          <p className="lg:text-lg text-base my-5">
-            I am from{" "}
-            <span className="font-bold text-yellow-700">Bangladesh</span>. My
-            digital playground includes Next.js, Node.js, and Prisma. I craft
-            seamless user experiences with Redux and MongoDB, while my code
-            dances to the rhythm of JavaScript. Explore my portfolio on{" "}
-            <a
-              className="text-yellow-600 underline font-bold"
-              href="https://github.com/Saiful10400"
-            >
-              GitHub
-            </a>{" "}
-            to witness the fusion of passion and innovation.
-          </p>
-        </div>
-        <div>
-          <a
-            target="blank"
-            href="https://drive.google.com/file/d/1Xox2zFyJTpf4ur1sq4OAkFJn1fYD_zcf/view?usp=drive_link"
-          >
-            <button className="btn btn-primary  bg-yellow-500 text-black border-none text-md lg:text-xl hover:bg-yellow-700">
-              Download Resume
-              <img
-                className="lg:w-[30px] w-[20px] lg:h-[30px] h-[20px]"
-                src={download}
-              />
-            </button>
+        </h2>
+        <p className="mt-6 text-gray-300 text-base lg:text-lg leading-relaxed">
+          I am from <span className="font-bold text-yellow-600">Bangladesh</span>. My digital playground includes Next.js, Node.js, and Prisma. I craft seamless user experiences with Redux and MongoDB, while my code dances to the rhythm of JavaScript. Explore my portfolio on{" "}
+          <a href="https://github.com/Saiful10400" target="_blank" rel="noreferrer" className="text-yellow-500 underline font-bold">
+            GitHub
           </a>
-        </div>
+        </p>
+        <a href="https://drive.google.com/file/d/1Xox2zFyJTpf4ur1sq4OAkFJn1fYD_zcf/view?usp=drive_link" target="_blank" rel="noreferrer" className="mt-8 inline-block">
+          <button className="flex items-center gap-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-6 py-3 rounded-lg text-lg transition-all shadow-lg">
+            Download Resume
+            <img src={download} alt="Download" className="w-6 h-6 lg:w-8 lg:h-8" />
+          </button>
+        </a>
       </div>
 
-      <div
-        data-aos="fade-left"
-        data-aos-duration="2000"
-        className=" w-full lg:w-1/2 lg:mt-0 mt-32   flex justify-center items-center  "
-      >
-        <div className="lg:w-[500px] w-[300px]  lg:h-[500px] h-[300px] bg-yellow-400 flex justify-center overflow-hidden items-center rounded-full">
-          <img className="w-full h-full object-contain" src={saiful} />
+      {/* Image Section */}
+      <div data-aos="fade-left" data-aos-duration="2000" className="lg:w-1/2 flex justify-end items-end mt-16 lg:mt-0">
+        <div className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full bg-yellow-400 flex justify-center items-center shadow-2xl overflow-hidden">
+          <img src={saiful} alt="Saiful" className="w-full h-full object-contain" />
+          <div className="absolute inset-0 rounded-full border-4 border-yellow-500 animate-pulse opacity-30"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
