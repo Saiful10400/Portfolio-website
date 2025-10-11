@@ -54,7 +54,7 @@ const Projects = () => {
                       {item.projectSummary.slice(0, 30) }{item.projectSummary.length > 30 ? "..." : ""}
                     </span>
                   </h1>
-                  <Link to={item.slug}>
+                  <Link to={"project/"+item.slug}>
                     <button className="flex items-center text-xl gap-3 font-bold hover:text-yellow-500 transition-all">
                       See Project{" "}
                       <span>

@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Components/User components/Root";
 
 import Blog from "./Components/User components/Blog/Blog";
+import Project from "./Components/User components/Projects/Project";
 
 export const router = createBrowserRouter([
   {
@@ -18,10 +19,10 @@ export const router = createBrowserRouter([
       //     path:"Projects",
       //     element:<Projects></Projects>
       // },
-      // {
-      //     path:"Projects/:slug",
-      //     element:<Project></Project>
-      // },
+      {
+        path: "project/:slug",
+        element: <Project />,
+      },
       // {
       //     path:"blogs",
       //     element:<Blogs></Blogs>
