@@ -5,16 +5,17 @@ import Root from "./Components/User components/Root";
 import Blog from "./Components/User components/Blog/Blog";
 import Project from "./Components/User components/Projects/Project";
 import ErrorElement from "./ErrorElement";
+import Admin from "./Components/User components/Admin/Admin";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    
+
     children: [
       {
-          path:"*",
-          element:<ErrorElement/>
+        path: "*",
+        element: <ErrorElement />,
       },
       // {
       //     path:"Projects",
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "blog/:slug",
         element: <Blog />,
+      },
+      {
+        path: "admin",
+        element: <Admin />,
       },
       // {
       //     path:"contact",
